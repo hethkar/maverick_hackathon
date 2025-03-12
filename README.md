@@ -40,3 +40,5 @@ docker-compose down
 **Reference** : 
 1. https://www.docker.com/blog/how-to-use-the-apache-httpd-docker-official-image/
 2. https://github.com/docker/awesome-compose
+3. https://www.baeldung.com/ops/kafka-docker-setup
+   
