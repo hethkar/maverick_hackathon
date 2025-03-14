@@ -41,6 +41,7 @@ docker rm <container-id>
 docker rmi <image-id>
 docker-compose up -d 
 docker-compose down
+docker logs maverick_hackathon-backend-1 -f (to check backend logs)
 ```
 
 **Reference** : 
@@ -53,3 +54,4 @@ docker-compose down
 7. https://huggingface.co/docs/transformers/v4.49.0/en/main_classes/pipelines#transformers.TextGenerationPipeline
 8. https://huggingface.co/meta-llama/Llama-3-8B
 9. https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+10. https://realpython.com/python-logging/
