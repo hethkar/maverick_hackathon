@@ -55,3 +55,4 @@ docker logs maverick_hackathon-backend-1 -f (to check backend logs)
 8. https://huggingface.co/meta-llama/Llama-3-8B
 9. https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 10. https://realpython.com/python-logging/
+11. https://geshan.com.np/blog/2023/06/elasticsearch-docker/

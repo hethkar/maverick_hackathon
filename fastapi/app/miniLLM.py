@@ -1,6 +1,10 @@
 from sentence_transformers import SentenceTransformer
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 def getEmbeddings():
+    logging.info("getEmbeddings")
     sentences = ["This is an example sentence", "Each sentence is converted"]
 
     model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
