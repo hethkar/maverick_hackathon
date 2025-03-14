@@ -1,7 +1,7 @@
 from fastapi import FastAPI
+from miniLM import getEmbeddings
 
 app = FastAPI()
-
 
 @app.get("/")
 def hello_world():
@@ -9,4 +9,6 @@ def hello_world():
 
 @app.get("/hello")
 def hello_world():
-    return {"Status": "Success"}
+    embeddings = getEmbeddings()
+    embeddingsListSize = len(embeddings)
+    return {"Status": "Success", "embeddings" : embeddingsListSize}

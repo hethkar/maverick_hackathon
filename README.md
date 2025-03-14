@@ -27,6 +27,11 @@
 5. You can check the fastapi at this URL : http://localhost:8081/hello
 6. To stop the docker services give following command : `docker-compose down`
 
+**Note** : To run fastapi in local run following command
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8081
+```
+
 ## Helpful Docker commands
 
 ```bash
@@ -41,4 +46,9 @@ docker-compose down
 1. https://www.docker.com/blog/how-to-use-the-apache-httpd-docker-official-image/
 2. https://github.com/docker/awesome-compose
 3. https://www.baeldung.com/ops/kafka-docker-setup
-   
+4. https://www.youtube.com/watch?v=LA-hZDnn5Hc
+5. https://colab.research.google.com/drive/1mUtld_eDrqQG3H8w8gkS3yaUSG6sbOLx?usp=sharing
+6. https://huggingface.co/docs/transformers/v4.49.0/en/main_classes/pipelines
+7. https://huggingface.co/docs/transformers/v4.49.0/en/main_classes/pipelines#transformers.TextGenerationPipeline
+8. https://huggingface.co/meta-llama/Llama-3-8B
+9. https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
