@@ -7,7 +7,8 @@ def getEmbeddings():
     embeddings = model.encode(sentences)
     return embeddings
 
-# embeddings = getEmbeddings()
-# print("embeddings len : ", len(embeddings))
-# print("embeddings first element len : ", len(embeddings[0]))
-# print("embeddings second element len : ", len(embeddings[1]))
+def demoCheck():
+    embeddings = getEmbeddings()
+    print("embeddings len : ", len(embeddings))
+    print("embeddings first element len : ", len(embeddings[0]))
+    print("embeddings second element len : ", len(embeddings[1]))

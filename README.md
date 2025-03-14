@@ -29,6 +29,7 @@
 
 **Note** : To run fastapi in local run following command
 ```bash
+cd fastapi\app
 uvicorn main:app --host 0.0.0.0 --port 8081
 ```
 
