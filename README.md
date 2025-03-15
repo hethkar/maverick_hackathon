@@ -33,6 +33,11 @@ cd fastapi\app
 uvicorn main:app --host 0.0.0.0 --port 8081
 ```
 
+Check opensearch-knn
+```bash
+http://localhost:9200/_cat/plugins?v
+```
+
 ## Helpful Docker commands
 
 ```bash
@@ -56,3 +61,5 @@ docker logs maverick_hackathon-backend-1 -f (to check backend logs)
 9. https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 10. https://realpython.com/python-logging/
 11. https://geshan.com.np/blog/2023/06/elasticsearch-docker/
+12. https://www.cloudbees.com/blog/how-to-install-and-run-jenkins-with-docker-compose
+13. https://tutorials.releaseworksacademy.com/learn/building-your-first-docker-image-with-jenkins-2-guide-for-developers

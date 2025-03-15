@@ -3,3 +3,5 @@
  *.zip
  *.pyc
 fastapi/app/__pycache__/*
+
+jenkins_compose/
