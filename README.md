@@ -20,6 +20,7 @@
 3. Build your docker image using following command : 
         ```bash
         cd fastapi
+        pytest app
         docker build -t my-fastapi2 .
         docker tag my-fastapi2:latest my-fastapi2:staging     
         ```
@@ -63,3 +64,4 @@ docker logs maverick_hackathon-backend-1 -f (to check backend logs)
 11. https://geshan.com.np/blog/2023/06/elasticsearch-docker/
 12. https://www.cloudbees.com/blog/how-to-install-and-run-jenkins-with-docker-compose
 13. https://tutorials.releaseworksacademy.com/learn/building-your-first-docker-image-with-jenkins-2-guide-for-developers
+14. https://fastapi.tiangolo.com/tutorial/testing/#run-it
