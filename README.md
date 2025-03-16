@@ -50,6 +50,15 @@ http://localhost:9200/_cat/plugins?v
 2. Run the docker image by using following command : `docker-compose up -d`
 3. docker logs maverick_hackathon-knn-index-1 -f
 
+## Search customer working command
+
+```bash
+curl --request POST \
+  --url 'http://localhost:8081/search_customer?query=durga' \
+  --header 'content-type: application/json' \
+  --data '{}'
+```
+
 ## Helpful Docker commands
 
 ```bash

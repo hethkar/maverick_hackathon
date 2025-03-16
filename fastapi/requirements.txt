@@ -1,3 +1,5 @@
 fastapi
 uvicorn
 sentence_transformers
+opensearch-py
+torch

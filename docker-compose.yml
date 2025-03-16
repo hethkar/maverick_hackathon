@@ -8,7 +8,8 @@ services:
   backend:
     image: "my-fastapi2:staging"
     environment:
-      PORT: 8000
+      - PORT=8000
+      - ELASTIC_SERVER_HOST=opensearch-knn
     ports:
       - '8081:8000'
     restart: "on-failure"
