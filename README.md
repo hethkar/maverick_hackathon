@@ -39,6 +39,16 @@ Check opensearch-knn
 http://localhost:9200/_cat/plugins?v
 ```
 
+## Steps to create run indexing project
+
+1. Build your docker image using following command :
+   ```bash
+   cd indexing
+   docker build -t my-knn-index2 .
+   docker tag my-knn-index2:latest my-knn-index2:staging
+   ```
+2. Run the docker image by using following command : `docker-compose up -d`
+
 ## Helpful Docker commands
 
 ```bash
