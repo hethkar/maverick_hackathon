@@ -48,6 +48,7 @@ http://localhost:9200/_cat/plugins?v
    docker tag my-knn-index2:latest my-knn-index2:staging
    ```
 2. Run the docker image by using following command : `docker-compose up -d`
+3. docker logs maverick_hackathon-knn-index-1 -f
 
 ## Helpful Docker commands
 

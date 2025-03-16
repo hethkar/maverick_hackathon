@@ -1,17 +1,17 @@
 services:
-  # ui:
-  #   image: "my-apache2:staging"
-  #   ports:
-  #     - '8080:80'
-  #   restart: "on-failure"
+  ui:
+    image: "my-apache2:staging"
+    ports:
+      - '8080:80'
+    restart: "on-failure"
   
-  # backend:
-  #   image: "my-fastapi2:staging"
-  #   environment:
-  #     PORT: 8000
-  #   ports:
-  #     - '8081:8000'
-  #   restart: "on-failure"
+  backend:
+    image: "my-fastapi2:staging"
+    environment:
+      PORT: 8000
+    ports:
+      - '8081:8000'
+    restart: "on-failure"
 
   opensearch-knn:
     image: opensearchproject/opensearch:latest
