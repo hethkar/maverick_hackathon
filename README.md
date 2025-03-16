@@ -59,6 +59,14 @@ curl --request POST \
   --data '{}'
 ```
 
+## Kafka Consumer and producer commands
+
+```bash
+cd indexing\src
+python kafka_producer.py
+python kafka_consumer.py
+```
+
 ## Helpful Docker commands
 
 ```bash
@@ -85,3 +93,4 @@ docker logs maverick_hackathon-backend-1 -f (to check backend logs)
 12. https://www.cloudbees.com/blog/how-to-install-and-run-jenkins-with-docker-compose
 13. https://tutorials.releaseworksacademy.com/learn/building-your-first-docker-image-with-jenkins-2-guide-for-developers
 14. https://fastapi.tiangolo.com/tutorial/testing/#run-it
+15. https://docs.confluent.io/kafka-clients/python/current/overview.html

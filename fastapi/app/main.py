@@ -43,6 +43,7 @@ async def create_item(item: Item):
 
 @app.post("/search_customer")
 def search_customer(query: str):
+    logging.info("Hello Search Customer called")
     model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
     # check if GPU is available and use it
     if torch.cuda.is_available():
