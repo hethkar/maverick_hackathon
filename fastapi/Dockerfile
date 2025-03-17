@@ -3,12 +3,12 @@ FROM python:3.9-slim AS builder
 WORKDIR /app
 
 COPY requirements.txt ./
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install -r requirements.txt
+# RUN --mount=type=cache,target=/root/.cache/pip \
+RUN    pip install -r requirements.txt
 
 COPY requirements_2.txt ./
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install -r requirements_2.txt
+# RUN --mount=type=cache,target=/root/.cache/pip \
+RUN    pip install -r requirements_2.txt
 
 COPY ./app /app
 
