@@ -59,6 +59,17 @@ curl --request POST \
   --data '{}'
 ```
 
+```bash
+curl -X 'POST' \
+  'http://localhost:8081/all-MiniLM-L6-v2/eval' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "fname": "sandep",
+  "address": "stevnage"
+}'
+```
+
 ## Kafka Consumer and producer commands
 
 ```bash
