@@ -1,32 +1,32 @@
 # Access the id_github file from Secret Manager, and setup SSH
 steps:
-- name: 'gcr.io/cloud-builders/git'
-  secretEnv: ['mav1']
-  entrypoint: 'bash'
-  args:
-  - -c
-  - |
-    echo "$$mav1" >> /root/.ssh/id_rsa
-    chmod 400 /root/.ssh/id_rsa
-    cp known_hosts.github /root/.ssh/known_hosts
-  volumes:
-  - name: 'ssh'
-    path: /root/.ssh
+  - name: 'gcr.io/cloud-builders/git'
+    secretEnv: ['mav1']
+    entrypoint: 'bash'
+    args:
+    - -c
+    - |
+      echo "$$mav1" >> /root/.ssh/id_rsa
+      chmod 400 /root/.ssh/id_rsa
+      cp known_hosts.github /root/.ssh/known_hosts
+    volumes:
+    - name: 'ssh'
+      path: /root/.ssh
 
-# Clone the repository
-- name: 'gcr.io/cloud-builders/git'
-  args:
-  - clone
-  - --recurse-submodules
-  - git@github.com:sandeepkumar8713/maverick_hackathon.git
-  volumes:
-  - name: 'ssh'
-    path: /root/.ssh
+  # Clone the repository
+  - name: 'gcr.io/cloud-builders/git'
+    args:
+    - clone
+    - --recurse-submodules
+    - git@github.com:sandeepkumar8713/maverick_hackathon.git
+    volumes:
+    - name: 'ssh'
+      path: /root/.ssh
 
-availableSecrets:
-  secretManager:
-  - versionName: projects/975466037337/secrets/mav1/versions/latest
-    env: 'mav1'
+  availableSecrets:
+    secretManager:
+    - versionName: projects/975466037337/secrets/mav1/versions/latest
+      env: 'mav1'
 
 
 # steps:
