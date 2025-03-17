@@ -1,0 +1,57 @@
+steps:
+  # Clone the repository
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/sandeepkumar8713/maverick_hackathon.git']
+    id: 'clone-repo'
+
+  # Build the FastAPI Docker image
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'build', 
+      '-t', 
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:${SHORT_SHA}', 
+      '-t', 
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:latest', 
+      './maverick_hackathon/fastapi'
+    ]
+    timeout: '3600s'  # 1 hour timeout for large image build
+    id: 'build-fastapi'
+    waitFor: ['clone-repo']
+
+  # Push the images to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push', 
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:${SHORT_SHA}'
+    ]
+    timeout: '1800s'  # 30 minutes for pushing
+    id: 'push-fastapi-versioned'
+    waitFor: ['build-fastapi']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push', 
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:latest'
+    ]
+    timeout: '1800s'  # 30 minutes for pushing
+    id: 'push-fastapi-latest'
+    waitFor: ['build-fastapi']
+
+# Set a longer timeout for the entire build
+timeout: '7200s'  # 2 hours
+
+# Use a higher-spec machine for faster builds
+options:
+  machineType: 'E2_HIGHCPU_16'
+  diskSizeGb: '100'
+  logging: CLOUD_LOGGING_ONLY
+
+# Make the resulting images available after the build
+images:
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:${SHORT_SHA}'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:latest'
+
+# Substitution variables
+substitutions:
+  _REGION: europe-west2  # Default region
+  _REPO_NAME: ltc-hack-grp-4  # Default repository name
