@@ -8,38 +8,38 @@ steps:
 
 
 
-  # Build the frontend Docker image
+  # Build the FastAPI Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'build', 
       '-t', 
-      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-frontend2:${SHORT_SHA}', 
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:${SHORT_SHA}', 
       '-t', 
-      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-frontend2:latest', 
-      './maverick_hackathon/frontend/'
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:latest', 
+      './maverick_hackathon/fastapi'
     ]
     timeout: '3600s'  # 1 hour timeout for large image build
-    id: 'build-frontend'
+    id: 'build-fastapi'
     waitFor: ['clone-repo']
 
   # Push the images to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push', 
-      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-frontend2:${SHORT_SHA}'
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:${SHORT_SHA}'
     ]
     timeout: '1800s'  # 30 minutes for pushing
-    id: 'push-frontend-versioned'
-    waitFor: ['build-frontend']
+    id: 'push-fastapi-versioned'
+    waitFor: ['build-fastapi']
 
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push', 
-      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-frontend2:latest'
+      '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:latest'
     ]
     timeout: '1800s'  # 30 minutes for pushing
-    id: 'push-frontend-latest'
-    waitFor: ['build-frontend']
+    id: 'push-fastapi-latest'
+    waitFor: ['build-fastapi']
 
 # Set a longer timeout for the entire build
 timeout: '7200s'  # 2 hours
@@ -52,8 +52,8 @@ options:
 
 # Make the resulting images available after the build
 images:
-  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-frontend2:${SHORT_SHA}'
-  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-frontend2:latest'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:${SHORT_SHA}'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/${_REPO_NAME}/my-fastapi2:latest'
 
 # Substitution variables
 substitutions:
