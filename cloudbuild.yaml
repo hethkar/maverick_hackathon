@@ -1,12 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/git'
-    secretEnv: ['SSH_KEY']
+    secretEnv: ['mav1']
     entrypoint: 'bash'
     args:
     - -c
     - |
       mkdir -p /root/.ssh
-      echo "$$SSH_KEY" > /root/.ssh/id_rsa
+      echo "$$mav1" > /root/.ssh/id_rsa
       chmod 400 /root/.ssh/id_rsa
       cp known_hosts.github /root/.ssh/known_hosts
     volumes:
@@ -18,15 +18,15 @@ steps:
     args:
     - clone
     - --recurse-submodules
-    - git@github.com:GIT_USERNAME/GIT_REPOSITORY
+    - git@github.com:sandeepkumar8713/maverick_hackathon.git
     volumes:
     - name: 'ssh'
       path: /root/.ssh
 
 availableSecrets:
   secretManager:
-  - versionName: projects/PROJECT_ID/secrets/SECRET_NAME/versions/latest
-    env: SSH_KEY
+  - versionName: projects/975466037337/secrets/mav1/versions/latest
+    env: mav1
 # steps:
 #   # Clone the repository
 #   - name: 'gcr.io/cloud-builders/git'
