@@ -42,7 +42,7 @@ timeout: '7200s'  # 2 hours
 
 # Use a higher-spec machine for faster builds
 options:
-  machineType: 'E2_HIGHCPU_16'
+  machineType: e2-highcpu-16
   diskSizeGb: '100'
   logging: CLOUD_LOGGING_ONLY
 
