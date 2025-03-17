@@ -6,3 +6,4 @@ fastapi/app/__pycache__/*
 
 jenkins_compose/
 indexing/src/__pycache__/*
+build/
